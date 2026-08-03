@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotizador de Dólar - Lab 01 (v2 Estados)</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <main>
+    <h1>Laboratorio 01: Cotizaciones del Dólar</h1>
+    
+    <button id="btnCargar">Consultar Cotizaciones</button>
+
+    <!-- ACTOR NUEVO 1: Estado de Carga (Spinner) -->
+    <div id="cargando" class="estado oculto" aria-live="polite">
+      <div class="spinner"></div>
+      <p>Consultando la API de cotizaciones...</p>
+    </div>
+
+    <!-- ACTOR NUEVO 2: Estado de Error -->
+    <div id="mensajeError" class="estado oculto error" role="alert">
+      <p id="textoError">Ocurrió un error al cargar las cotizaciones.</p>
+    </div>
+
+    <!-- ACTOR DIBUJO: Contenedor de Tarjetas -->
+    <section id="contenedorCotizaciones" class="grid-cotizaciones">
+      <!-- JS inyectará las tarjetas acá -->
+    </section>
+  </main>
+
+</body>
+</html>

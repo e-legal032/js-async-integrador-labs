@@ -50,9 +50,23 @@ El archivo `app.js` está estructurado siguiendo el principio de **Separación d
 4.	Selectores CSS Modernos:
     o	Uso de document.querySelector respetando la sintaxis formal de selectores de CSS (#id, .clase).
 
-## Futuras Iteraciones
+## 📌 Evolución del Proyecto
 
-- Incorporar un indicador de carga (spinner / loader) visual durante la espera de la promesa de red.
-- Implementar un filtro para seleccionar tipos de dólar específicos (ej. Oficial vs. Blue).
-- Manejo visual de errores en pantalla cuando la API no esté disponible o la conexión de red falle.
+### 🔹 v1-mvp (Producto Mínimo Viable)
+- **Objetivo**: Renderizado dinámico de tarjetas a partir de una API externa.
+- **Conceptos clave**:
+  - Separación rigurosa en 3 capas (Capa de Dibujo/DOM, Capa de Red/API, Inicialización).
+  - Peticiones asincrónicas con `fetch` y `async/await`.
+  - Generación de nodos en memoria RAM con `document.createElement()`.
+
+---
+
+### 🔹 v2-estados-red (Resiliencia y Experiencia de Usuario)
+- **Objetivo**: Controlar la interfaz según el ciclo de vida de la red (espera, éxito y error).
+- **Conceptos clave**:
+  - **Manejo de Estados Visuales**: Estado de Carga (`loading`), Éxito y Error controlados mediante la clase CSS `.oculto`.
+  - **Patrón `try...catch`**: Captura de errores de red o respuestas HTTP inválidas (`!respuesta.ok`).
+  - **Spinners y Feedback**: Indicador de progreso con animación CSS (`@keyframes`).
+  - **Accesibilidad (WAI-ARIA)**: Uso de `aria-live="polite"` para actualizaciones asincrónicas y `role="alert"` para errores.
+  - **Prevención de Peticiones Duplicadas**: Deshabilitación temporal del botón (`disabled = true`) durante la carga.
 
